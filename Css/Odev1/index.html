@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        .container {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .row>* {
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .col-1 {
+            flex: 0 0 auto;
+            width: 8.33333333%;
+        }
+
+        .col-2 {
+            flex: 0 0 auto;
+            width: 16.66666667%;
+        }
+
+        .col-3 {
+            flex: 0 0 auto;
+            width: 25%;
+        }
+
+        .col-4 {
+            flex: 0 0 auto;
+            width: 33.33333333%;
+        }
+
+        .col-5 {
+            flex: 0 0 auto;
+            width: 41.66666667%;
+        }
+
+        .col-6 {
+            flex: 0 0 auto;
+            width: 50%;
+        }
+
+        .col-7 {
+            flex: 0 0 auto;
+            width: 58.33333333%;
+        }
+
+        .col-8 {
+            flex: 0 0 auto;
+            width: 66.66666667%;
+        }
+
+        .col-9 {
+            flex: 0 0 auto;
+            width: 75%;
+        }
+
+        .col-10 {
+            flex: 0 0 auto;
+            width: 83.33333333%;
+        }
+
+        .col-11 {
+            flex: 0 0 auto;
+            width: 91.66666667%;
+        }
+
+        .col-12 {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+
+        .justify-content-center {
+            justify-content: center !important;
+        }
+
+        .align-items-center {
+            align-items: center !important;
+        }
+
+        .text-end {
+            text-align: right !important;
+        }
+
+        .p-3 {
+            padding: 1rem !important;
+        }
+
+        .mb-5 {
+            margin-bottom: 3rem !important;
+        }
+
+        input {
+            background: #fff;
+            border: 1px solid #ececec;
+            height: 38px;
+            font-size: 14px;
+            box-sizing: border-box;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: color .2s, opacity .2s;
+            width: 100%;
+            font-family: poppins, sans-serif;
+            padding-left: 16px;
+            flex-shrink: initial;
+            border-radius: 40px;
+        }
+
+        .logo span {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        aside nav {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .big-menu {
+            margin-bottom: 20px;
+            padding-right: 30px;
+            margin-top: 15px;
+        }
+
+        .big-menu a {
+            font-size: 20px;
+            font-weight: 500;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .category-list a {
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        .big-menu a.active {
+            background-image: linear-gradient(90deg, #F4F4F4 0%, #EFEFEF 100%);
+        }
+
+        a {
+            color: #222;
+            text-decoration: none;
+        }
+
+        .fs-3 {
+            margin-top:0;
+            font-size: 17px;
+        }
+
+        .btn-chrome {
+            border: 1px solid #ececec;
+            padding: 10px 20px;
+            border-radius: 40px;
+        }
+
+        .palette-colors {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .palette-colors>div {
+            display: flex;
+            align-items: end;
+        }
+
+        .palette-colors>div>span {
+            padding: 5px 10px 5px;
+            color:#fff;
+            opacity:0;
+            background: rgba(0,0,0,.3);
+        }
+        .palette-colors>div:hover span{
+            opacity:1;
+            cursor: pointer;
+        }
+
+        .palette-colors>div:first-child {
+            height: 100px;
+        }
+
+        .palette-colors>div:nth-child(2) {
+            height: 80px;
+        }
+
+        .palette-colors>div:nth-child(3) {
+            height: 60px;
+        }
+
+        .palette-colors>div:nth-child(4) {
+            height: 50px;
+        }
+
+        .palette-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+
+        .palette-footer>span:first-child {
+            background: #fff;
+            border: 1px solid #ececec;
+            border-radius: 10px;
+            padding: 10px 20px;
+        }
+
+        .palette-footer>span:last-child {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="row p-3 justify-content-center align-items-center">
+                <div class="col-2 logo"><span>Color Hunt</span></div>
+                <div class="col-8">
+                    <input type="text" placeholder="Search palettes">
+                </div>
+                <div class="col-2 text-end">
+                    <span class="btn-chrome">Add to Chrome</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div class="row p-3">
+                <aside class="col-2">
+                    <nav class="big-menu">
+                        <a class="active" href="#">New</a>
+                        <a href="#">Popular</a>
+                        <a href="#">Random</a>
+                        <a href="#">Collection</a>
+                    </nav>
+                    <nav class="category-list">
+                        <a href="">Pastel</a>
+                        <a href="">Neon</a>
+                        <a href="">Gold</a>
+                        <a href="">Vintage</a>
+                        <a href="">Retro</a>
+                        <a href="">Light</a>
+                        <a href="">Dark</a>
+                        <a href="">Warm</a>
+                        <a href="">Cold</a>
+                        <a href="">Summer</a>
+                        <a href="">Fail</a>
+                        <a href="">Winter</a>
+                    </nav>
+                </aside>
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="palette p-3">
+                                <div class="palette-colors">
+                                    <div style="background-color:#4C0027;">
+                                        <span>#4C0027</span>
+                                    </div>
+                                    <div style="background-color:#570530;">
+                                        <span>#570530</span>
+                                    </div>
+                                    <div style="background-color:#750550;">
+                                        <span>#750550</span>
+                                    </div>
+                                    <div style="background-color:#980F5A;">
+                                        <span>#980F5A</span>
+                                    </div>
+                                </div>
+                                <div class="palette-footer">
+                                    <span>115</span>
+                                    <span>17 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="palette p-3">
+                                <div class="palette-colors">
+                                    <div style="background-color:#FF6363;">
+                                        <span>#FF6363</span>
+                                    </div>
+                                    <div style="background-color:#FFAB76;">
+                                        <span>#FFAB76</span>
+                                    </div>
+                                    <div style="background-color:#FFFDA2;">
+                                        <span>#FFFDA2</span>
+                                    </div>
+                                    <div style="background-color:#BAFFB4;">
+                                        <span>#BAFFB4</span>
+                                    </div>
+                                </div>
+                                <div class="palette-footer">
+                                    <span>115</span>
+                                    <span>17 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="palette p-3">
+                                <div class="palette-colors">
+                                    <div style="background-color:#8946A6;">
+                                        <span>#8946A6</span>
+                                    </div>
+                                    <div style="background-color:#B762C1;">
+                                        <span>#B762C1</span>
+                                    </div>
+                                    <div style="background-color:#EA99D5;">
+                                        <span>#EA99D5</span>
+                                    </div>
+                                    <div style="background-color:#FFCDDD;">
+                                        <span>#980F5A</span>
+                                    </div>
+                                </div>
+                                <div class="palette-footer">
+                                    <span>115</span>
+                                    <span>17 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="palette p-3">
+                                <div class="palette-colors">
+                                    <div style="background-color:#D9D7F1;">
+                                        <span>#D9D7F1</span>
+                                    </div>
+                                    <div style="background-color:#FFFDDE;">
+                                        <span>#FFFDDE</span>
+                                    </div>
+                                    <div style="background-color:#E7FBBE;">
+                                        <span>#E7FBBE</span>
+                                    </div>
+                                    <div style="background-color:#FFCBCB;">
+                                        <span>#FFCBCB</span>
+                                    </div>
+                                </div>
+                                <div class="palette-footer">
+                                    <span>115</span>
+                                    <span>17 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="palette p-3">
+                                <div class="palette-colors">
+                                    <div style="background-color:#072227;">
+                                        <span>#072227</span>
+                                    </div>
+                                    <div style="background-color:#35858B;">
+                                        <span>#35858B</span>
+                                    </div>
+                                    <div style="background-color:#4FBDBA;">
+                                        <span>#4FBDBA</span>
+                                    </div>
+                                    <div style="background-color:#AEFEFF;">
+                                        <span>#AEFEFF</span>
+                                    </div>
+                                </div>
+                                <div class="palette-footer">
+                                    <span>115</span>
+                                    <span>17 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="palette p-3">
+                                <div class="palette-colors">
+                                    <div style="background-color:#D3DEDC;">
+                                        <span>#D3DEDC</span>
+                                    </div>
+                                    <div style="background-color:#92A9BD;">
+                                        <span>#92A9BD</span>
+                                    </div>
+                                    <div style="background-color:#7C99AC;">
+                                        <span>#7C99AC</span>
+                                    </div>
+                                    <div style="background-color:#FFEFEF;">
+                                        <span>#FFEFEF</span>
+                                    </div>
+                                </div>
+                                <div class="palette-footer">
+                                    <span>115</span>
+                                    <span>17 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="palette p-3">
+                                <div class="palette-colors">
+                                    <div style="background-color:#362222;">
+                                        <span>#362222</span>
+                                    </div>
+                                    <div style="background-color:#B3541E;">
+                                        <span>#B3541E</span>
+                                    </div>
+                                    <div style="background-color:#FFCCD2;">
+                                        <span>#FFCCD2</span>
+                                    </div>
+                                    <div style="background-color:#FFEDED;">
+                                        <span>#FFEDED</span>
+                                    </div>
+                                </div>
+                                <div class="palette-footer">
+                                    <span>115</span>
+                                    <span>17 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="palette p-3">
+                                <div class="palette-colors">
+                                    <div style="background-color:#876445;">
+                                        <span>#876445</span>
+                                    </div>
+                                    <div style="background-color:#CA965C;">
+                                        <span>#CA965C</span>
+                                    </div>
+                                    <div style="background-color:#EEC373;">
+                                        <span>#EEC373</span>
+                                    </div>
+                                    <div style="background-color:#F4DFBA;">
+                                        <span>#F4DFBA</span>
+                                    </div>
+                                </div>
+                                <div class="palette-footer">
+                                    <span>115</span>
+                                    <span>17 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="palette p-3">
+                                <div class="palette-colors">
+                                    <div style="background-color:#781C68;">
+                                        <span>#781C68</span>
+                                    </div>
+                                    <div style="background-color:#9A0680;">
+                                        <span>#9A0680</span>
+                                    </div>
+                                    <div style="background-color:#FFD39A;">
+                                        <span>#FFD39A</span>
+                                    </div>
+                                    <div style="background-color:#FFF5E1;">
+                                        <span>#FFF5E1</span>
+                                    </div>
+                                </div>
+                                <div class="palette-footer">
+                                    <span>115</span>
+                                    <span>17 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="col-2">
+                    <div class="p-3">
+                        <h2 class="fs-3">Color Palettes for Designers and Artists</h2>
+                        <p>
+                            Discover the newest hand-picked palettes of Color Hunt
+                        </p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
